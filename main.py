@@ -74,7 +74,8 @@ with col_cart:
         # 장바구니 출력 (여기도 변경되었습니다!)
         for index, item in enumerate(st.session_state['cart']):
             # 개별 합계 계산 (단가 x 수량)
-            sub_total = item['price'] * item['quantity']
+            qty = item.get('quantity', 1) 
+            sub_total = item['price'] * qty
             total_price += sub_total
             
             # 화면 표시: 이름 x 수량 (가격)
